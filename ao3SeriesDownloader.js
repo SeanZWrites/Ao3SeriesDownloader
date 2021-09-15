@@ -88,6 +88,11 @@ function getFilenameFromURL(url) {
 function addDownloadButton() {
     // create the download button on the series page
     let navList = document.querySelector("#main ul.navigation.actions")
+
+    // if we aren't logged in, there's no where to add the button - gracefully
+    // return here to avoid creating console messages.
+    if (navList === null) return
+
     let downloadSeriesButton = document.createElement("li")
     downloadSeriesButton.setAttribute("class", "download")
 

@@ -1,7 +1,9 @@
 # Ao3 Series Downloader
 
-A simple, open-source browser plugin that adds a 'Download Series' button in Ao3. Works in both
-Firefox and Chrome.
+A simple, open-source browser plugin that adds a 'Download Series' button in Ao3. Works in
+Firefox, Chrome, and Edge.
+
+*Note: You need to be logged into AO3 to see the Download Series button.*
 
 ## Installation Instructions
 Ideally, you should install this from the Chrome Web Store (for Chrome) or the Mozilla Addons Site
@@ -10,7 +12,7 @@ Ideally, you should install this from the Chrome Web Store (for Chrome) or the M
 ### Sideloading in Chrome
 Once this extension is downloaded:
   - Go to `chrome://extensions` in your browser
-  - Enable developer mode by toggling the switch on the upper right. 
+  - Enable developer mode by toggling the switch on the upper right.
   - Then click 'Load Unpacked', and navigate to this folder. 
   
 You should see this extension appear.

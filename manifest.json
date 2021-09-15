@@ -2,7 +2,7 @@
     "name": "Ao3 Series Downloader",
     "description": "Easily download a series from Ao3!",
     "homepage_url": "https://github.com/SeanZWrites/Ao3SeriesDownloader",
-    "version": "1.0",
+    "version": "1.0.1",
     "manifest_version": 2,
     "permissions": ["downloads"],
     "content_scripts" : [
