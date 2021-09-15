@@ -2,7 +2,7 @@
     "name": "Ao3 Series Downloader",
     "description": "Easily download a series from Ao3!",
     "version": "1.0",
-    "manifest_version": 3,
+    "manifest_version": 2,
     "permissions": ["downloads"],
     "content_scripts" : [
         {
@@ -11,6 +11,7 @@
         }
     ],
     "background": {
-        "service_worker": "backgroundDownloader.js"
+        "scripts": ["backgroundDownloader.js"],
+        "persistent": false
     }
   }

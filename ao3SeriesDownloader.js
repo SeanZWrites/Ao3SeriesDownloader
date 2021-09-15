@@ -44,7 +44,7 @@ async function downloadStory(storyUrl, storyFormat = 'HTML'){
     let body = await resp.text()
     let doc = parser.parseFromString(body, 'text/html')
 
-    let downloadLinks = Array.from(doc.querySelectorAll("#main > ul.work.navigation.actions > li.download > ul a"))
+    let downloadLinks = Array.from(doc.querySelectorAll("li.download > ul a"))
     let downloadLinksInFormat = downloadLinks.filter(x => x.text === storyFormat)
 
     if (downloadLinksInFormat.length < 1) throw new Error(`Failed to find download link for format ${storyFormat}`)
@@ -53,14 +53,14 @@ async function downloadStory(storyUrl, storyFormat = 'HTML'){
 
     let storyDownloadURL = new URL(downloadLink.href, window.location.origin)
     let storyTitle = doc.querySelector("h2.title.heading").textContent.trim()
-    let storyFilename = getFilenameFromURL(storyDownloadURL)
+    let storyFilename = decodeURIComponent(getFilenameFromURL(storyDownloadURL)) //chrome auto-decodes this, firefox will not
 
     // we don't want to hammer AO3 with multiple downloads at once. So instead we use callbacks
     // and the messaging system to wait for the download to complete.
     console.log(`Downloading story: ${storyTitle}`)
     let downloadCompletionPromise = new Promise(resolve => {
         chrome.runtime.sendMessage({
-            url: storyDownloadURL,
+            url: storyDownloadURL.href, //firefox does not allow you to pass the URL object
             filename: storyFilename
         },
         (response) => resolve(response)
