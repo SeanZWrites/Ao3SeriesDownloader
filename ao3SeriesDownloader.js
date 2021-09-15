@@ -4,6 +4,12 @@ async function downloadSeries(e, storyFormat='HTML') {
     e.preventDefault()
     let seriesName = document.querySelector("h2").textContent.trim()
     console.log(`Downloading series ${seriesName}`)
+    
+    // let the download link text serve as an indicator
+    let downloadSeriesLink = document.getElementById("downloadSeriesLink")
+    downloadSeriesLink.click() // effectively collapses the download sub-menu
+
+    downloadSeriesLink.text = "Downloading..."
 
     // find all stories on this page
     storyLinks = findAllStoryLinks()
@@ -11,10 +17,17 @@ async function downloadSeries(e, storyFormat='HTML') {
 
     for (let index = 0; index < storyLinks.length; index++) {
         console.log(`Downloading story ${index+1} of ${storyLinks.length}`)
+
+        downloadSeriesLink.text = `Downloading (${index+1}/${storyLinks.length})`
         let downloadResult = await downloadStory(storyLinks[index], storyFormat)
 
-        if (!downloadResult) break;
+        if (!downloadResult) {
+            alert("Download failed, please check the console log and see if there were any errors")
+            break;
+        };
     }
+
+    downloadSeriesLink.text = "Download Series"
    
 }
 
@@ -83,12 +96,10 @@ function addDownloadButton() {
     downloadTypeMenu.setAttribute("class", "expandable secondary hidden")
 
     // add the link element to the download button, which toggles the 
-    // hidden menu. It's also what we return, so we have the option
-    // of providing feedback using the link text.
-    // 
-    // later on, use a proper badge using chrome UI.
+    // hidden menu. 
     let downloadSeriesLink = document.createElement("a")
     downloadSeriesLink.setAttribute("href", "#")
+    downloadSeriesLink.id = "downloadSeriesLink"
     downloadSeriesLink.setAttribute("class", "collapsed")
     downloadSeriesLink.text = "Download Series"
     downloadSeriesLink.onclick = (e) => {
@@ -117,8 +128,6 @@ function addDownloadButton() {
     downloadSeriesButton.append(downloadSeriesLink)
     downloadSeriesButton.append(downloadTypeMenu)
     navList.append(downloadSeriesButton)
-
-    return downloadSeriesLink //so the text can be easily edited
 }
 
 let downloadLink = addDownloadButton()
