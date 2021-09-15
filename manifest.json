@@ -1,0 +1,16 @@
+{
+    "name": "Ao3 Series Downloader",
+    "description": "Easily download a series from Ao3!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": ["downloads"],
+    "content_scripts" : [
+        {
+            "matches": ["https://archiveofourown.org/series/*"],
+            "js": ["ao3SeriesDownloader.js"]
+        }
+    ],
+    "background": {
+        "service_worker": "backgroundDownloader.js"
+    }
+  }
