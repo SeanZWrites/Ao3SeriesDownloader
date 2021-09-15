@@ -1,6 +1,7 @@
 {
     "name": "Ao3 Series Downloader",
     "description": "Easily download a series from Ao3!",
+    "homepage_url": "https://github.com/SeanZWrites/Ao3SeriesDownloader",
     "version": "1.0",
     "manifest_version": 2,
     "permissions": ["downloads"],
@@ -13,5 +14,10 @@
     "background": {
         "scripts": ["backgroundDownloader.js"],
         "persistent": false
+    },
+    "icons": {
+        "16": "icons/Icon16px.png",
+        "48": "icons/Icon48px.png",
+        "128": "icons/Icon128px.png"
     }
   }
