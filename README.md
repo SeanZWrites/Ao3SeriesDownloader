@@ -28,4 +28,4 @@ However, if you'd like to test the extension, or just load it without using the 
 The extension will be loaded into Firefox until you close the browser. 
 
 ## Acknowledgements
-The icon for this extension was built using the free icons provided on (Google Fonts)[https://fonts.google.com/icons].
+The icon for this extension was built using the free icons provided on [Google Fonts](https://fonts.google.com/icons).
