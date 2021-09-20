@@ -7,7 +7,7 @@ Ao3. Works in Firefox, Chrome, and Edge.
 
 ## Installation Instructions
 Most users will likely want to install this from the
-[Chrome Web Store (for Chrome)](https://chrome.google.com/webstore/detail/ao3-series-downloader/lhdccommkdbadfgjhlccfmcpdhmepjik)
+[Chrome Web Store (for Chrome and Edge Users)](https://chrome.google.com/webstore/detail/ao3-series-downloader/lhdccommkdbadfgjhlccfmcpdhmepjik)
 or the [Mozilla Addons Site (for
 Firefox)](https://addons.mozilla.org/en-US/firefox/addon/ao3-series-downloader/).
 This ensures the extension will be kept up-to-date automatically.
